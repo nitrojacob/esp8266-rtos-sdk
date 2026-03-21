@@ -19,7 +19,7 @@
 # Author: Nelio Santos <nsfilho@icloud.com>
 # Repository: https://github.com/nsfilho/ESP8266-RTOS-SDK-Docker
 #
-FROM debian:buster
+FROM debian:trixie
 LABEL AUTHOR_NAME "Nelio Souza Santos Filho"
 LABEL AUTHOR_EMAIL "nsfilho@icloud.com"
 
@@ -44,7 +44,7 @@ RUN apt-get update && apt-get install -y \
 
 # Download SDK & Install python requirements
 RUN mkdir /esp /esp/sdk && \
-    git clone -b release/v3.3 --recursive ${SDK_URL} /esp/sdk && \
+    git clone -b release/v3.4 --recursive ${SDK_URL} /esp/sdk && \
     cd /esp/sdk && \
     pip install -r requirements.txt
 
