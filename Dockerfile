@@ -37,16 +37,16 @@ ENTRYPOINT [ "/entrypoint.sh" ]
 # Instalando pacotes padrões
 RUN apt-get update && apt-get install -y \
     cmake ninja-build git \
-    curl wget python-pip \
+    curl wget python3-pip \
     libncurses-dev build-essential flex bison gperf \
-    gcc make python python-serial && \
+    gcc make python3 python-serial && \
     rm -rf /var/lib/apt/lists/*
 
 # Download SDK & Install python requirements
 RUN mkdir /esp /esp/sdk && \
     git clone -b release/v3.4 --recursive ${SDK_URL} /esp/sdk && \
     cd /esp/sdk && \
-    pip install -r requirements.txt
+    pip3 install -r requirements.txt
 
 # Download Toolchain
 RUN curl -o /esp/xtensa.tar.gz ${XTENSA_URL} && \
