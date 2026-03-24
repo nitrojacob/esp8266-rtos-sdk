@@ -19,7 +19,7 @@
 # Author: Nelio Santos <nsfilho@icloud.com>
 # Repository: https://github.com/nsfilho/ESP8266-RTOS-SDK-Docker
 #
-FROM debian:trixie
+FROM ubuntu:24.04
 LABEL AUTHOR_NAME "Nelio Souza Santos Filho"
 LABEL AUTHOR_EMAIL "nsfilho@icloud.com"
 
@@ -35,7 +35,7 @@ RUN chmod +x /entrypoint.sh
 ENTRYPOINT [ "/entrypoint.sh" ]
 
 # Instalando pacotes padrões
-RUN apt-get update && apt-get install -y \
+RUN apt update && apt install -y \
     cmake ninja-build git \
     curl wget python3-pip \
     libncurses-dev build-essential flex bison gperf \
